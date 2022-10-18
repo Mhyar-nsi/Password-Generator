@@ -13,6 +13,9 @@
     margin-top: 2%;
 }
 @media screen and (min-width : 992px) {
+    h2 {
+        font-size: 35px;
+    }
     img {
         width: 650px;
         height: 650px;
