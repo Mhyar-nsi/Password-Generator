@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-top: 2%;
 }
 @media screen and (min-width : 992px) {
@@ -25,5 +26,11 @@
     }
     .psg {
         margin-left: 60px;
+    }
+    .output {
+        margin: 30px;
+    }
+    .row {
+        flex-direction: row;
     }
 }
