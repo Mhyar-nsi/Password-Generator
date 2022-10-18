@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Mono' , monospace;
+    background-image: linear-gradient(to left top, #f4f5f6, #f3f5f6, #f3f4f6, #f2f4f5, #f2f3f5);
+}
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h2 {
+    font-size: 35px;
+    background: -webkit-linear-gradient(right top, #89f7fe 0%, #66a6ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.title {
+    text-align: center;
+}
+img {
+    width: 450px;
+    height: 450px;
+    margin-bottom: -20px;
+}
+.psg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+button {
+    font-family: 'DM Mono';
+    padding: 15px 30px;
+    border: none;
+    background-color: #66a6ff;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #66a6ff;
+    transition: .2s;
+}
+button:hover {
+    background-color: transparent;
+    border: 1px solid #66a6ff;
+    color: #66a6ff;
+}
+.output {
+    padding: 15px 70px;
+    margin: 20px;
+    border-radius:5px;
+    border: 1px solid rgb(217, 217, 218);
+}
