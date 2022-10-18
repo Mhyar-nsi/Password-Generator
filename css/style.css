@@ -17,7 +17,7 @@ body {
     flex-direction: column;
 }
 h2 {
-    font-size: 35px;
+    font-size: 30px;
     background: -webkit-linear-gradient(right top, #89f7fe 0%, #66a6ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -26,8 +26,8 @@ h2 {
     text-align: center;
 }
 img {
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
     margin-bottom: -20px;
 }
 .psg {
