@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+}
+
+.container-fluid {
+    width: 90%;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+@media screen and (min-width : 992px) {
+    img {
+        width: 650px;
+        height: 650px;
+    }
+    .container-fluid {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .svg {
+        margin-right: 120px;
+    }
+    .psg {
+        margin-left: 60px;
+    }
+}
