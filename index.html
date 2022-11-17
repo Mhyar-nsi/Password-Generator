@@ -6,26 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-    <header class="container">
-        <div class="row">
-            <div class="title">
-                <h2>Password Generator</h2>
-                <p>Generate secure, random passwords to stay safe online.</p>
-            </div>
+    <header>
+        <div class="header-left">
+            <p class="color-1">Create a strong password</p>
+            <h1>Password Generator</h1>
+            <p class="color-2">Try it FREE</p>
+        </div>
+
+        <div class="header-right">
+            <button class="btn">
+                <img src="image/icon-github.svg" alt="">
+                <span>View on GitHub</span>
+            </button>
         </div>
     </header>
 
-    <div class="container-fluid">
-        <div class="svg">
-            <img src="image/superhero.svg" alt="">
+    <div class="container">
+        <div class="content">
+            <div class="label">
+                <p>Length</p>
+                <p>Digits</p>
+                <p>Capitals</p>
+                <p>Symbols</p>
+            </div>
+            <div class="inputs">
+                <input type="range" min="6" max="25" value="15" id="length">
+                <input type="range" min="0" max="10" value="5" id="digits">
+                <input type="range" min="0" max="10" value="5" id="capitals">
+                <input type="range" min="0" max="5" value="2" id="symbols">
+            </div>
+            <div class="num">
+                <p id="length-value">15</p>
+                <p id="digits-value">05</p>
+                <p id="capitals-value">05</p>
+                <p id="symbols-value">02</p>
+            </div>
         </div>
-        <div class="psg">
-            <p class="output">Click on Generate</p>
-            <button id="generate">Generate</button>
+        <div class="output">
+            <textarea id="textarea" placeholder="CLICK ON GENERATE"></textarea>
+        </div>
+        <div class="storang">
+            <div class="storang-value"></div>
+        </div>
+        <div class="btns">
+            <button class="copy">Copy</button>
+            <button class="generate">Generate</button>
+        </div>
+        <div>
+            <p class="warning"></p>
         </div>
     </div>
 
