@@ -11,6 +11,7 @@ const symbolsValue = document.querySelector('#symbols-value');
 const copy = document.querySelector('.copy');
 const textarea = document.querySelector('#textarea');
 const warning = document.querySelector('.warning');
+const generate = document.querySelector('.generate');
 
 btn.addEventListener('click' , () => {
     window.open('https://github.com/Mhyar-nsi/Password-Generator' , '_blank');
@@ -69,21 +70,6 @@ symbols.addEventListener('mousemove' , () => {
     symbolsValue.innerHTML = '0'+symbols.value;
 })
 
-// function passGenerate() {
-//     let result = '';
-//     let lgth = length.value;
-//     let char = 'qwertyuiopasdfghjklzxcvbnm';
-//     let capital = 'QWERTYUIOPASDFGHJKLZXCVBNM';
-//     let symb = '@#$()_-!';
-    
-//     for(let i = 1 ; i <= lgth ; i++){
-//         if(digits.value > 0){
-//             result += 
-//         }
-//     }
-// }
-
-// result += characters.charAt(Math.floor(Math.random() * charactersLength));
 copy.addEventListener('click' , () => {
     textarea.select();
     let textareaValue = textarea.value;
@@ -97,3 +83,16 @@ copy.addEventListener('click' , () => {
         copy.classList.add('copy');
     } , 2500);
 });
+
+function passGenerate(){
+    let result = '';
+    let char = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!@#$%_-*';
+    for(let i = 0 ; i < length.value ; i++){
+        result += char.charAt(Math.floor(Math.random() * char.length));
+    }
+    return result;
+}
+
+generate.addEventListener('click' , () => {
+    textarea.innerHTML = passGenerate();
+})
