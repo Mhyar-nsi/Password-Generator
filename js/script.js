@@ -17,7 +17,7 @@ btn.addEventListener('click' , () => {
     window.open('https://github.com/Mhyar-nsi/Password-Generator' , '_blank');
 });
 
-length.addEventListener('mousemove' , () => {
+length.addEventListener('range' , () => {
     if (length.value < 10) {
         lengthValue.innerHTML = '0'+length.value;
         storangValue.style.width = '10%';
