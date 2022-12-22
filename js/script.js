@@ -50,7 +50,7 @@ length.addEventListener('range' , () => {
     }
 });
 
-digits.addEventListener('mousemove' , () => {
+digits.addEventListener('range' , () => {
     if(digits.value < 10){
         digitsValue.innerHTML = '0'+digits.value;
     }else {
@@ -58,7 +58,7 @@ digits.addEventListener('mousemove' , () => {
     }
 });
 
-capitals.addEventListener('mousemove' , () => {
+capitals.addEventListener('range' , () => {
     if(capitals.value < 10){
         capitalsValue.innerHTML = '0'+capitals.value;
     } else {
@@ -66,7 +66,7 @@ capitals.addEventListener('mousemove' , () => {
     }
 });
 
-symbols.addEventListener('mousemove' , () => {
+symbols.addEventListener('range' , () => {
     symbolsValue.innerHTML = '0'+symbols.value;
 })
 
