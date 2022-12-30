@@ -71,6 +71,7 @@ header {
 }
 .inputs {
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin: 0 55px;
 }
@@ -163,18 +164,25 @@ textarea {
     display: none;
 }
 @media screen and (max-width : 700px) {
-    header {
+    .header-left {
         display: none;
+    }
+    header {
+        justify-content: center;
     }
     .container {
-        display: none;
+        width: 350px;
     }
-    footer {
-        display: none;
+    input {
+        width: 120px;
     }
-    .visible {
-        display: flex;
-        justify-content: center;
-        margin-top: 50vh;
+    textarea  {
+        width: 270px;
+    }
+    .storang {
+        width: 270px;
+    }
+    .btns button {
+        width: 130px;
     }
 }
