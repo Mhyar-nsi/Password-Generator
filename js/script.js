@@ -17,7 +17,7 @@ btn.addEventListener('click' , () => {
     window.open('https://github.com/Mhyar-nsi/Password-Generator' , '_blank');
 });
 
-length.addEventListener('mousemove' , () => {
+length.addEventListener('input' , () => {
     if (length.value < 10) {
         lengthValue.innerHTML = '0'+length.value;
         storangValue.style.width = '10%';
@@ -50,7 +50,7 @@ length.addEventListener('mousemove' , () => {
     }
 });
 
-digits.addEventListener('mousemove' , () => {
+digits.addEventListener('input' , () => {
     if(digits.value < 10){
         digitsValue.innerHTML = '0'+digits.value;
     }else {
@@ -58,7 +58,7 @@ digits.addEventListener('mousemove' , () => {
     }
 });
 
-capitals.addEventListener('mousemove' , () => {
+capitals.addEventListener('input' , () => {
     if(capitals.value < 10){
         capitalsValue.innerHTML = '0'+capitals.value;
     } else {
@@ -66,9 +66,10 @@ capitals.addEventListener('mousemove' , () => {
     }
 });
 
-symbols.addEventListener('mousemove' , () => {
+symbols.addEventListener('input' , () => {
     symbolsValue.innerHTML = '0'+symbols.value;
-})
+    console.log(symbolsValue);
+});
 
 copy.addEventListener('click' , () => {
     textarea.select();
@@ -95,4 +96,5 @@ function passGenerate(){
 
 generate.addEventListener('click' , () => {
     textarea.innerHTML = passGenerate();
+    console.log(length.value)
 })
