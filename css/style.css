@@ -77,6 +77,7 @@ header {
 }
 .inputs input {
     margin-top: 14.5px;
+    accent-color: #1d90f4;
 }
 .num p {
     margin-top: 9px;
@@ -160,9 +161,7 @@ textarea {
 .footer-txt a:hover {
     color: #125ea0;
 } 
-.visible {
-    display: none;
-}
+
 @media screen and (max-width : 700px) {
     .header-left {
         display: none;
