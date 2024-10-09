@@ -10,91 +10,87 @@ const symbols = document.querySelector('#symbols');
 const symbolsValue = document.querySelector('#symbols-value');
 const copy = document.querySelector('.copy');
 const textarea = document.querySelector('#textarea');
-const warning = document.querySelector('.warning');
 const generate = document.querySelector('.generate');
 
-btn.addEventListener('click' , () => {
-    window.open('https://github.com/Mhyar-nsi/Password-Generator' , '_blank');
+// Open GitHub page
+btn.addEventListener('click', () => {
+    window.open('https://github.com/Mhyar-nsi/Password-Generator', '_blank');
 });
 
-length.addEventListener('input' , () => {
-    if (length.value < 10) {
-        lengthValue.innerHTML = '0'+length.value;
-        storangValue.style.width = '10%';
-        storangValue.style.backgroundColor = 'red';
-
-    } if(length.value >= 10) {
-        lengthValue.innerHTML = length.value;
-        storangValue.style.width = '30%';
-        storangValue.style.backgroundColor = '#f53d3d';
-
-    } if (length.value >= 14){
-        lengthValue.innerHTML = length.value;
-        storangValue.style.width = '50%';
-        storangValue.style.backgroundColor = 'orange';
-
-    } if (length.value >= 18) {
-        lengthValue.innerHTML = length.value;
-        storangValue.style.width = '70%';
-        storangValue.style.backgroundColor = 'green';
-
-    } if (length.value >= 22) {
-        lengthValue.innerHTML = length.value;
-        storangValue.style.width = '90%';
-        storangValue.style.backgroundColor = '#38ef7d';
-
-    } if (length.value == 25) {
-        lengthValue.innerHTML = length.value;
-        storangValue.style.width = '100%';
-        storangValue.style.backgroundColor = '#38ef7d';
-    }
+// Update length value and strength bar
+length.addEventListener('input', () => {
+    lengthValue.innerHTML = length.value.padStart(2, '0'); // Always 2 digits
+    let lengthPercentage = (length.value / 25) * 100;
+    storangValue.style.width = lengthPercentage + '%';
+    storangValue.style.backgroundColor = getStrengthColor(lengthPercentage);
 });
 
-digits.addEventListener('input' , () => {
-    if(digits.value < 10){
-        digitsValue.innerHTML = '0'+digits.value;
-    }else {
-        digitsValue.innerHTML = digits.value;
-    }
-});
-
-capitals.addEventListener('input' , () => {
-    if(capitals.value < 10){
-        capitalsValue.innerHTML = '0'+capitals.value;
-    } else {
-        capitalsValue.innerHTML = capitals.value;
-    }
-});
-
-symbols.addEventListener('input' , () => {
-    symbolsValue.innerHTML = '0'+symbols.value;
-    console.log(symbolsValue);
-});
-
-copy.addEventListener('click' , () => {
-    textarea.select();
-    let textareaValue = textarea.value;
-    navigator.clipboard.writeText(textareaValue);
-    copy.innerHTML = 'Copied!';
-    copy.classList.remove('copy');
-    copy.classList.add('copied');
-    setTimeout(() => {
-        copy.innerHTML = 'Copy';
-        copy.classList.remove('copied');
-        copy.classList.add('copy');
-    } , 2500);
-});
-
-function passGenerate(){
-    let result = '';
-    let char = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!@#$%_-*';
-    for(let i = 0 ; i < length.value ; i++){
-        result += char.charAt(Math.floor(Math.random() * char.length));
-    }
-    return result;
+function getStrengthColor(percentage) {
+    if (percentage <= 20) return 'red';
+    if (percentage <= 40) return '#f53d3d';
+    if (percentage <= 60) return 'orange';
+    if (percentage <= 80) return 'green';
+    return '#38ef7d';
 }
 
-generate.addEventListener('click' , () => {
+// Update digits value
+digits.addEventListener('input', () => {
+    digitsValue.innerHTML = digits.value.padStart(2, '0');
+});
+
+// Update capitals value
+capitals.addEventListener('input', () => {
+    capitalsValue.innerHTML = capitals.value.padStart(2, '0');
+});
+
+// Update symbols value
+symbols.addEventListener('input', () => {
+    symbolsValue.innerHTML = symbols.value.padStart(2, '0');
+});
+
+// Copy to clipboard
+copy.addEventListener('click', () => {
+    textarea.select();
+    navigator.clipboard.writeText(textarea.value);
+    copy.innerHTML = 'Copied!';
+    copy.classList.replace('copy', 'copied');
+    setTimeout(() => {
+        copy.innerHTML = 'Copy';
+        copy.classList.replace('copied', 'copy');
+    }, 2500);
+});
+
+// Generate password
+function passGenerate() {
+    const lowerCase = 'qwertyuiopasdfghjklzxcvbnm';
+    const upperCase = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+    const numbers = '0123456789';
+    const symbolsChars = '!@#$%_-*';
+
+    let result = '';
+
+    // Add required number of digits, capitals, and symbols
+    for (let i = 0; i < digits.value; i++) {
+        result += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    }
+    for (let i = 0; i < capitals.value; i++) {
+        result += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
+    }
+    for (let i = 0; i < symbols.value; i++) {
+        result += symbolsChars.charAt(Math.floor(Math.random() * symbolsChars.length));
+    }
+
+    // Add remaining characters as lowercase
+    let remainingLength = length.value - result.length;
+    for (let i = 0; i < remainingLength; i++) {
+        result += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
+    }
+
+    // Shuffle the result to make it more random
+    return result.split('').sort(() => Math.random() - 0.5).join('');
+}
+
+// Generate password on button click
+generate.addEventListener('click', () => {
     textarea.innerHTML = passGenerate();
-    console.log(length.value)
-})
+});
